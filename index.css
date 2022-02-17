@@ -12,13 +12,24 @@
   position: absolute;
 }
 
+#appname {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 700;
+  color: hsl(183, 100%, 15%);
+  letter-spacing: 5px;
+  font-size: medium;
+}
+
 .wrapper {
   position: absolute;
   color: black;
   background-color: hsl(0, 0%, 100%);
   width: 640px;
   height: 360px;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 15px;
