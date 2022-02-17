@@ -16,9 +16,10 @@ const calculateTip = () => {
 
     const radioChecked = $('input[name="tip"]:checked').length !== 0;
 
+
     if ((radioChecked || $('#custom').val().trim().length !== 0) && $(
             'input[name="person"]').val().trim().length !== 0 && $('input[name="bill"]').val().trim()
-        .length !== 0) {
+        .length !== 0 && parseInt($('input[name="person"]').val()) !== 0) {
         const person = parseFloat($('input[name="person"]').val())
         let bill = parseFloat($('input[name="bill"]').val())
         let tip = radioChecked ? $('input[name="tip"]:checked').val() : $('#custom').val();
