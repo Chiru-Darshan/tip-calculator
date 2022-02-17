@@ -8,15 +8,14 @@
   height: 100%;
   width: 100%;
   background-color: hsl(185, 41%, 84%);
-
-  position: absolute;
+  position: relative;
 }
 
 #appname {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  text-align: center;
+  margin-top: 8%;
+  /* transform: translate(-50%, -50%); */
   font-weight: 700;
   color: hsl(183, 100%, 15%);
   letter-spacing: 5px;
@@ -24,14 +23,13 @@
 }
 
 .wrapper {
-  position: absolute;
+  position: relative;
   color: black;
   background-color: hsl(0, 0%, 100%);
-  width: 640px;
-  height: 360px;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  width: 700px;
+  margin-top: 2%;
+  margin-bottom: 4%;
   border-radius: 15px;
 }
 
@@ -50,10 +48,6 @@
   color: hsl(189, 41%, 97%);
   font-weight: 700;
   padding-top: 10px;
-}
-
-.first-label {
-  /* background-color: aquamarine; */
 }
 
 .money-label {
@@ -79,11 +73,6 @@
   margin-top: 5px;
   z-index: 1;
 }
-
-/* input {
- 
-  background-color: hsl(185, 41%, 84%);
-} */
 
 #bill {
   text-align: end;
@@ -179,4 +168,11 @@ select:focus {
 }
 
 @media only screen and (max-width: 600px) {
+  .wrapper {
+    margin: 0px;
+    width: 100%;
+  }
+  #appname {
+    margin-bottom: 15%;
+  }
 }
