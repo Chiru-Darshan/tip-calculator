@@ -35,7 +35,8 @@
 
                             <div class="bill-section">
                                 <label class="label-text">Bill</label>
-                                <input type="text" placeholder="0.00" class="bill-input rounded-1" name="bill" required>
+                                <input type="number" placeholder="0.00" class="bill-input rounded-1" name="bill"
+                                    required>
                                 <i class="fa fa-dollar" style="font-size: 10px;"></i>
                             </div>
 
@@ -61,7 +62,7 @@
                                 <label class="m-1 p-2 tip-button">
                                     <input type="radio" name="tip" id="option5" value="50" autocomplete="off"> 50%
                                 </label>
-                                <input type="text" name="custom" id="custom" class="m-1 p-1 rounded-3"
+                                <input type="number" name="custom" id="custom" class="m-1 p-1 rounded-3"
                                     placeholder="Custom">
 
                             </div>
@@ -70,7 +71,7 @@
 
                             <div class="people-section">
                                 <label class="label-text">Number of People</label>
-                                <input type="text" placeholder="0" class="people-input rounded-1" name="person"
+                                <input type="number" placeholder="0" class="people-input rounded-1" name="person"
                                     required>
                                 <i class="fa fa-user fa-lg" style="height:20px"></i>
                             </div>
@@ -106,7 +107,7 @@
 
                     <div class="section2-main p-3">
                         <div class="first-label row pt-5 m-4">
-                            <button class="btn" id="reset-button"> RESET </button>
+                            <button class="btn" id="reset-button" onclick="resetValues()"> RESET </button>
                         </div>
                     </div>
 
@@ -124,61 +125,7 @@
     </script>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 
-    <script>
-        const calculateTip = () => {
-
-            const radioChecked = $('input[name="tip"]:checked').length !== 0;
-
-            if ((radioChecked || $('#custom').val().trim().length !== 0) && $(
-                    'input[name="person"]').val().trim().length !== 0 && $('input[name="bill"]').val().trim()
-                .length !== 0) {
-                const person = parseFloat($('input[name="person"]').val())
-                let bill = parseFloat($('input[name="bill"]').val())
-                let tip = radioChecked ? $('input[name="tip"]:checked').val() : $('#custom').val();
-                tip = parseFloat(tip)
-
-                console.log(` person : ${person}, bill : ${bill}, tip : ${tip}`)
-                const tipAmt = ((tip / 100) * bill);
-                console.log(`tip amount : ${tipAmt}`)
-                const tipPerPerson = tipAmt / person
-                console.log(`tip per person : ${tipPerPerson}`)
-                bill += parseFloat(tipAmt)
-                const total = ((bill) / person)
-                console.log(`tipAmt :${tipAmt.toFixed(2)} , total : ${total} `)
-                $('.tip-amount').prop('innerText', tipPerPerson.toFixed(2).toString())
-                $('.total-amount').prop('innerText', total.toFixed(2).toString())
-            } else {
-                $('.tip-amount').prop('innerText', "0.00")
-                $('.total-amount').prop('innerText', "0.00")
-            }
-
-
-        }
-
-        $('input[type="radio"]:checked').prop('checked', false);
-        $('input[type="radio"]').click((event) => {
-            $('.tip-button').removeClass("active-btn")
-
-            $('input[name="tip"]:checked').parent().addClass("active-btn")
-            console.log("clicked")
-        })
-
-        $('#custom').focus(() => {
-            $('.tip-button').removeClass("active-btn")
-            $('input[type="radio"]:checked').prop('checked', false);
-        })
-
-        $('input[name="bill"]').on("input", () => {
-            calculateTip()
-        })
-        $('input[name="person"]').on("input", (event) => {
-            calculateTip()
-        })
-
-        $('#custom').on("input", () => {
-            calculateTip()
-        })
-        $('input[type="radio"]').change(() => calculateTip())
+    <script src="index.js">
     </script>
 </body>
 
