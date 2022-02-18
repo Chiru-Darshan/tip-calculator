@@ -7,7 +7,7 @@ const resetValues = () => {
     $('.total-amount').prop('innerText', "0.00")
     $('input[type="radio"]:checked').prop('checked', false);
     $('input[name="bill"]').val("0.00")
-    $('input[name="person"]').val("0.00")
+    $('input[name="person"]').val("1")
     $('#custom').val("Custom")
     $('.tip-button').removeClass("active-btn")
 }
@@ -67,3 +67,28 @@ $('#custom').on("input", () =>
     calculateTip()
 )
 $('input[type="radio"]').change(() => calculateTip())
+
+$('input[name="person"]').on("input", function () {
+    if (parseInt($('input[name="person"]').val()) === 0) {
+        $('input[name="person"]')[0].setCustomValidity("Please Enter at least one person");
+        $('input[name="person"]')[0].reportValidity();
+        $('input[name="person"]').val("");
+
+    }
+});
+
+$('input[name="bill"]').on("input", function () {
+    if (parseInt($('input[name="bill"]').val()) === 0) {
+        $('input[name="bill"]')[0].setCustomValidity("Please Enter valid amount");
+        $('input[name="bill"]')[0].reportValidity()
+        $('input[name="bill"]').val("")
+    }
+});
+
+$('#custom').on("input", function () {
+    if (parseInt($('#custom').val()) === 0) {
+        $('#custom')[0].setCustomValidity("Please Enter at least one percent");
+        $('#custom')[0].reportValidity()
+        $('#custom').val("")
+    }
+});

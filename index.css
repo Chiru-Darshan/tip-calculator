@@ -176,3 +176,7 @@ select:focus {
     margin-bottom: 15%;
   }
 }
+
+input[type="number"]:focus {
+  box-shadow: 0 0 5px hsl(183, 100%, 15%);
+}
